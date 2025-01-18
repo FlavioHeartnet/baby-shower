@@ -65,37 +65,38 @@ const InviteCard: React.FC<InviteCardProps> = ({ guest, event }) => {
         <div className="relative h-full p-8 flex flex-col items-center justify-between">
           <div className="text-center space-y-4 mt-32">
             <h2 className="text-4xl font-bold text-[#6d5a43] font-serif mb-6">
-              Chá de Bebê
+              Chá do Luiz Otávio
             </h2>
-            <p className="text-2xl text-[#6d5a43] font-serif">
+            <p className="text-2xl text-[#6d5a43] font-serif font-bold">
               Olá, {guest.name}!
             </p>
           </div>
 
-          <div className="text-center space-y-6 bg-[#faf7f2]/90 p-8 rounded-2xl shadow-md w-80 mx-auto">
-            <p className="text-[#6d5a43] text-lg font-medium">
-              Você está convidado(a) para nosso momento especial
+          <div className="mt-3 text-center space-y-6 bg-[#faf7f2]/90 p-8 rounded-2xl shadow-md w-80 mx-auto">
+            <p className="text-[#6d5a43] text-xl font-bold">
+              A vida esta preste a ficar ainda mais alegre! <br/> venha celebrar conosco!
             </p>
 
             <div className="space-y-3">
               <p className="font-semibold text-[#6d5a43]">Data:</p>
-              <p className="text-[#6d5a43] font-medium">{event.date}</p>
+              <p className="text-[#6d5a43] text-xl font-medium">{event.date}</p>
 
               <p className="font-semibold text-[#6d5a43] mt-4">Local:</p>
-              <p className="text-[#6d5a43] font-medium">{event.location}</p>
+              <p className="text-[#6d5a43] text-xl font-medium">{event.location}</p>
             </div>
 
-            <div className="mt-6 bg-[#6d5a43]/10 p-3 rounded-lg">
+            <div className="mt-6 bg-[#6d5a43]/10 p-2 rounded-lg text-xl">
               <p className="text-[#6d5a43] font-medium">
-                Por favor, traga fraldas do tamanho:
+                Sugestão de presente: <b>fralda</b> tamanho:
                 <span className="font-bold ml-2 text-[#8b7355]">
                   {guest.diaperSize}
-                </span>
+                </span><br/>
+                + um <b>mimo</b>!
               </p>
             </div>
           </div>
 
-          <p className="text-[#8b7355] text-sm mt-4 italic">
+          <p className="text-[#8b7355] text-sm mt-4 italic font-bold">
             Sua presença é muito especial para nós!
           </p>
         </div>
@@ -103,7 +104,7 @@ const InviteCard: React.FC<InviteCardProps> = ({ guest, event }) => {
       <div className=" flex flex-col items-center gap-3 z-10 px-4">
         <Button
           onClick={downloadAsImage}
-          className="w-full max-w-[280px] bg-[#6d5a43]/90 hover:bg-[#6d5a43] text-white rounded-full py-6 flex items-center justify-center gap-2 backdrop-blur-sm transition-all duration-300 shadow-lg"
+          className="font-serif w-full max-w-[280px] bg-[#6d5a43]/90 hover:bg-[#6d5a43] text-white rounded-full py-6 flex items-center justify-center gap-2 backdrop-blur-sm transition-all duration-300 shadow-lg"
         >
           <Download size={20} />
           Baixar Convite
@@ -121,7 +122,7 @@ const InviteGenerator: React.FC = () => {
   });
   const event = {
     date: "8 de Fevereiro às 16:00",
-    location: "UFSC, Córrego Grande, Florianópolis - Santa Catarina",
+    location: "A Rua professora Maria Flora Pausewang - Salão 2, Trindade, Florianópolis - SC, 88036-020",
   };
 
   const addGuest = () => {
@@ -143,10 +144,10 @@ const InviteGenerator: React.FC = () => {
             placeholder="Nome do convidado"
             value={newGuest.name}
             onChange={(e) => setNewGuest({ ...newGuest, name: e.target.value })}
-            className="border-[#6d5a43] focus:ring-[#6d5a43] text-lg"
+            className="border-[#6d5a43] focus:ring-[#6d5a43] text-lg font-serif"
           />
           <select
-            className="border rounded-lg p-3 text-[#6d5a43] border-[#6d5a43] bg-white/80 text-lg"
+            className="border rounded-lg p-3 text-[#6d5a43] border-[#6d5a43] bg-white/80 text-lg font-serif"
             value={newGuest.diaperSize}
             onChange={(e) =>
               setNewGuest({ ...newGuest, diaperSize: e.target.value })}
@@ -159,7 +160,7 @@ const InviteGenerator: React.FC = () => {
           </select>
           <Button
             onClick={addGuest}
-            className="bg-[#6d5a43] hover:bg-[#8b7355] text-white font-medium text-lg py-6"
+            className="bg-[#6d5a43] hover:bg-[#8b7355] text-white font-medium text-lg py-6 font-serif"
           >
             Adicionar Convidado
           </Button>
